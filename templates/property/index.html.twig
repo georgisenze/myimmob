@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos propriétés- immobilier agence!{% endblock %}
+
+{% block body %}
+    <main id="main">
+
+        <!-- ======= Intro Single ======= -->
+        <section class="intro-single">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-8">
+                        <div class="title-single-box">
+                            <h1 class="title-single">Nos meilleurs offres</h1>
+                            <span class="color-text-a">Grille des Propriétés</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4">
+                        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="{{ path('home') }}">Acceuil</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Grille des Propriétés
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Intro Single-->
+
+        <!-- ======= Property Grid ======= -->
+        <section class="property-grid grid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="grid-option">
+                            {{ form(form) }}
+                        </div>
+                    </div>
+                    {% for property in property %}
+                        {% include "property/single_property.html.twig" %}
+                    {% endfor %}
+                     
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <nav class="pagination-a">
+                            <ul class="pagination justify-content-end">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">
+                                        <span class="bi bi-chevron-left"></span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item next">
+                                    <a class="page-link" href="#">
+                                        <span class="bi bi-chevron-right"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Property Grid Single-->
+
+    </main><!-- End #main -->
+
+{% endblock %}
